@@ -46,3 +46,6 @@
 [submodule "cairomm"]
 	path = cairomm
 	url = git://git.cairographics.org/git/cairomm
+[submodule "mongo-cxx-driver"]
+	path = mongo-cxx-driver
+	url = git@github.com:nomadlogic/mongo-cxx-driver.git
