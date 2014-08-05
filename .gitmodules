@@ -49,3 +49,6 @@
 [submodule "curl"]
 	path = curl
 	url = git@github.com:bagder/curl.git
+[submodule "curlpp"]
+	path = curlpp
+	url = git@github.com:nomadlogic/curlpp.git
