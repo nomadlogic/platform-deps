@@ -49,3 +49,6 @@
 [submodule "mongo-cxx-driver"]
 	path = mongo-cxx-driver
 	url = git@github.com:nomadlogic/mongo-cxx-driver.git
+[submodule "mm-common"]
+	path = mm-common
+	url = git@github.com:GNOME/mm-common.git
