@@ -1,12 +1,14 @@
 
 # Determine where the install directory is located.
-TARGET?=$(HOME)/local
+TARGET?=$(HOME)/scratch/local
 
 # Determines the number of parallel jobs that will be used to build each of the submodules
 JOBS?=8
 
 
-all: install_node install_boost install_userspacercu install_hiredis install_snappy install_cityhash install_zeromq install_libssh2 install_libcurl install_curlpp install_protobuf install_gperftools install_zookeeper install_redis install_mongodb_cxx_driver install_cairomm
+# all: install_node install_boost install_userspacercu install_hiredis install_snappy install_cityhash install_zeromq install_libssh2 install_libcurl install_curlpp install_protobuf install_gperftools install_zookeeper install_redis install_mongodb_cxx_driver install_cairomm
+# A3: removed zookeeper and gperf since i built these outside of this script to get around bugs - pwright@
+all: install_node install_boost install_userspacercu install_hiredis install_snappy install_cityhash install_zeromq install_libssh2 install_libcurl install_curlpp install_protobuf install_redis install_mongodb_cxx_driver 
 
 .PHONY: install_node install_boost install_userspacercu install_hiredis install_snappy install_cityhash install_zeromq install_libssh2 install_libcurl install_curlpp install_protobuf install_gperftools install_zookeeper install_redis install_mongodb_cxx_driver install_jq
 
