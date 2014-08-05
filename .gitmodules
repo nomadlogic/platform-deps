@@ -49,3 +49,6 @@
 [submodule "snappy"]
 	path = snappy
 	url = git@github.com:nomadlogic/snappy.git
+[submodule "curl"]
+	path = curl
+	url = git@github.com:bagder/curl.git
