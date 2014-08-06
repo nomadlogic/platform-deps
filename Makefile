@@ -70,7 +70,7 @@ install_redis:
 
 install_mongodb_cxx_driver:
 	rm -rf $(TARGET)/include/mongo
-	cd mongo-cxx-driver && scons -j$(JOBS) install --prefix $(TARGET)
+	cd mongo-cxx-driver && scons -j$(JOBS) install --prefix=$(TARGET)
 
 install_jq:
 	cd jq && make -k install prefix=$(TARGET)
