@@ -6,9 +6,7 @@ TARGET?=$(HOME)/scratch/local
 JOBS?=8
 
 
-# all: install_node install_boost install_userspacercu install_hiredis install_snappy install_cityhash install_zeromq install_libssh2 install_libcurl install_curlpp install_protobuf install_gperftools install_zookeeper install_redis install_mongodb_cxx_driver install_cairomm
-# A3: removed zookeeper and gperf since i built these outside of this script to get around bugs - pwright@
-all: install_node install_boost install_userspacercu install_hiredis install_snappy install_cityhash install_zeromq install_libssh2 install_libcurl install_curlpp install_protobuf install_redis install_mongodb_cxx_driver install_mm-common  
+all: install_node install_boost install_userspacercu install_hiredis install_snappy install_cityhash install_zeromq install_libssh2 install_libcurl install_curlpp install_protobuf install_gperftools install_zookeeper install_redis install_mongodb_cxx_driver install_mm-common  
 
 .PHONY: install_node install_boost install_userspacercu install_hiredis install_snappy install_cityhash install_zeromq install_libssh2 install_libcurl install_curlpp install_protobuf install_gperftools install_zookeeper install_redis install_mongodb_cxx_driver install_jq
 
@@ -60,10 +58,10 @@ install_curlpp:
 	echo '#include "curlpp/config.h"' > $(TARGET)/include/curlpp/internal/global.h
 
 install_gperftools:
-	cd gperftools && ./configure --prefix $(TARGET) --enable-frame-pointers && make all CXXFLAGS="-g -O3" && make install
+	cd /home/pwright/scratch/src/gperftools-2.2.1 && ./configure --prefix $(TARGET) --enable-frame-pointers && make all CXXFLAGS="-g" && make install
 
 install_zookeeper:
-	cd zookeeper && (ulimit -v unlimited; JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/ ant compile) && cd src/c && autoreconf -if && ./configure --prefix $(TARGET) && make -j$(JOBS) -k install && make doxygen-doc && rm -f ~/local/bin/zookeeper && cd ../.. && ln -s `pwd` ~/local/bin/zookeeper
+	cd zookeeper && (ulimit -v unlimited; JAVA_HOME=/usr/local/java/jdk7-1.7.0_65-0.el7.centos ant compile) && cd src/c && autoreconf -if && ./configure --prefix $(TARGET) && make -j$(JOBS) -k install && make doxygen-doc && rm -rf ~/local/bin/zookeeper && cd ../.. && ln -s `pwd` ~/local/bin/zookeeper
 
 install_redis:
 	cd redis && make -j$(JOBS) -k PREFIX=$(TARGET) install
