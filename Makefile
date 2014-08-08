@@ -58,7 +58,7 @@ install_curlpp:
 	echo '#include "curlpp/config.h"' > $(TARGET)/include/curlpp/internal/global.h
 
 install_gperftools:
-	cd /home/pwright/scratch/src/gperftools-2.2.1 && ./configure --prefix $(TARGET) --enable-frame-pointers && make all CXXFLAGS="-g" && make install
+	cd gperftools-2.2.1 && ./configure --prefix $(TARGET) --enable-frame-pointers && make all CXXFLAGS="-g" && make install
 
 install_zookeeper:
 	cd zookeeper && (ulimit -v unlimited; JAVA_HOME=/usr/local/java/jdk7-1.7.0_65-0.el7.centos ant compile) && cd src/c && autoreconf -if && ./configure --prefix $(TARGET) && make -j$(JOBS) -k install && make doxygen-doc && rm -rf ~/local/bin/zookeeper && cd ../.. && ln -s `pwd` ~/local/bin/zookeeper
